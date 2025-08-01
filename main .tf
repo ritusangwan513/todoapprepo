@@ -1,39 +1,35 @@
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
+      source  = "hashicorp/azurerm"
       version = "4.35.0"
     }
+
   }
+  backend "azurerm" {
+
+    resource_group_name  = "cicdrg"
+    storage_account_name = "ritucicdstorage"
+    container_name       = "blobcd"
+
+    key = "rit.tfstate"
+
+  }
+
+
+
 }
 
 provider "azurerm" {
-features {
-  
-}
-subscription_id = "332de106-8035-4f48-a71e-790b9e30e3ff"
+  features {
+
+  }
+  subscription_id = "193a80b5-b916-4c17-b06d-cfc310d07a2c"
 }
 resource "azurerm_resource_group" "rg1" {
-  name     = "ritu1"
+  name     = "ciritu"
   location = "West Europe"
-}
-resource "azurerm_resource_group" "rg12" {
-  name     = "ritu12"
-  location = "West Europe"
-}
-resource "azurerm_resource_group" "rg11" {
-  name     = "ritu11"
-  location = "West Europe"
-}
-resource "azurerm_resource_group" "rg15" {
-  name     = "ritu15"
-  location = "West Europe"
-
 }
 
-resource "azurerm_resource_group" "rg4" {
 
-  name     = "ritu4"
-  location = "West Europe"
-}
 
